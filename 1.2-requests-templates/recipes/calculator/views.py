@@ -19,10 +19,12 @@ DATA = {
     # можете добавить свои рецепты ;)
 }
 
-
 def recipes(request, dish):
-    dishes = DATA[dish]
-    context = {'recipe': dishes}
+    count_person = int(request.GET.get('servings', 1))
+    print(count_person)
+    recipe = DATA[dish]
+    amount = {k:v*count_person for (k,v) in recipe.items()}
+    context = {'recipe': amount}
     return render(request, 'calculator/index.html', context)
 
 # Напишите ваш обработчик. Используйте DATA как источник данных
