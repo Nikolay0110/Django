@@ -4,8 +4,8 @@ from measurement.views import SensorViewSet, MeasurementViewSet
 
 
 router = routers.DefaultRouter()
-router.register('sensors',SensorViewSet)
-router.register('measurements',MeasurementViewSet)
+router.register('sensors', SensorViewSet)
+router.register('measurements', MeasurementViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
